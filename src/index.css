@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-saffron: #FF9933;
-  --color-saffron-dark: #E6851A;
+  --color-saffron: #FF6B00;
+  --color-saffron-dark: #E55D00;
+  --color-saffron-light: #FF8C33;
   --color-hindi-green: #138808;
-  --color-hindi-blue: #000080;
+  --color-hindi-blue: #1A1A5E;
   --color-cream: #FFF8F0;
   --color-warm-gray: #F5F0EB;
   --font-sans: 'Inter', system-ui, sans-serif;

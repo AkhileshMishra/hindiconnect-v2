@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { GraduationCap, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -8,8 +8,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <GraduationCap className="w-7 h-7 text-saffron" />
-              <span className="font-display text-lg font-bold">Hindi<span className="text-saffron">Connect</span></span>
+              <img src="https://hindiconnect.com/wp-content/uploads/2023/10/Logo.png" alt="HindiConnect" className="h-10 brightness-0 invert" />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               A brand of Gurukul Pte Ltd, Singapore. Empowering learners to master Hindi across the globe with qualified native teachers.

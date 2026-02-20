@@ -91,7 +91,8 @@ export const courses = [
     period: '/month',
     features: ['All education boards supported', 'Group size under 5 students', 'Live online classes', 'Milestone-based curriculum', 'Custom worksheets & materials', 'Regular assessments & tests', 'Progress reports for parents'],
     highlight: true,
-    icon: '🎓'
+    icon: '🎓',
+    image: 'https://hindiconnect.com/wp-content/uploads/2022/06/boy-with-trophy.jpg'
   },
   {
     id: 'kids',
@@ -101,7 +102,8 @@ export const courses = [
     period: '/month',
     features: ['Preliminary to advanced levels', 'Group size under 5 students', 'Live online classes', 'Interactive learning materials', 'Practice with native speakers', 'Fun cultural activities', 'Regular progress tests'],
     highlight: false,
-    icon: '🧒'
+    icon: '🧒',
+    image: 'https://hindiconnect.com/wp-content/uploads/2022/06/Spoken-Hindi-For-Kids.png'
   },
   {
     id: 'adults',
@@ -111,7 +113,8 @@ export const courses = [
     period: '/month',
     features: ['Preliminary to advanced levels', 'Group size under 5 students', 'Live online classes', 'Business & conversational Hindi', 'Practice with native speakers', 'Cultural immersion sessions', 'Flexible scheduling'],
     highlight: false,
-    icon: '👩‍💼'
+    icon: '👩‍💼',
+    image: 'https://hindiconnect.com/wp-content/uploads/2022/06/Spoken-Hindi-For-Adults.jpg'
   },
   {
     id: 'trial',

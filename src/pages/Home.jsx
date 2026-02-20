@@ -5,35 +5,45 @@ import { useContent } from '../context/ContentContext';
 
 function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-cream via-white to-orange-50 overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
+    <section className="relative bg-gradient-to-br from-orange-50 via-white to-cream overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-20 left-10 text-[200px] font-hindi text-saffron select-none">अ</div>
         <div className="absolute bottom-10 right-20 text-[150px] font-hindi text-hindi-blue select-none">ह</div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-saffron/10 text-saffron px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" /> AI-Powered Assessments Coming Soon
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-saffron/10 text-saffron px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+              <Sparkles className="w-4 h-4" /> AI-Powered Assessments Coming Soon
+            </div>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-hindi-blue leading-tight mb-6">
+              Learn <span className="text-saffron">हिंदी</span> With<br />Qualified Native Teachers
+            </h1>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
+              Academic Hindi excellence for Kindergarten to Class X. Spoken Hindi for adults and kids. Small groups, personalized learning, real results.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/courses" className="inline-flex items-center gap-2 bg-saffron text-white px-8 py-3.5 rounded-full font-medium hover:bg-saffron-dark transition-colors shadow-lg shadow-saffron/25">
+                Explore Courses <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a href="https://api.whatsapp.com/send?phone=6586900960&text=Hello,%20I%20want%20to%20book%20a%20trial%20class" target="_blank" rel="noreferrer"
+                className="inline-flex items-center gap-2 border-2 border-hindi-blue text-hindi-blue px-8 py-3.5 rounded-full font-medium hover:bg-hindi-blue hover:text-white transition-colors">
+                Book a Trial — ₹236
+              </a>
+            </div>
+            <div className="flex items-center gap-6 mt-10 text-sm text-gray-500">
+              <span className="flex items-center gap-1"><Users className="w-4 h-4" /> 500+ Students</span>
+              <span className="flex items-center gap-1"><Star className="w-4 h-4 text-yellow-500" /> 4.9 Rating</span>
+              <span className="flex items-center gap-1"><Globe className="w-4 h-4" /> 10+ Countries</span>
+            </div>
           </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-hindi-blue leading-tight mb-6">
-            Master <span className="text-saffron">हिंदी</span> With<br />Qualified Native Teachers
-          </h1>
-          <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
-            Academic Hindi excellence for Kindergarten to Class X. Spoken Hindi for adults and kids. Small groups, personalized learning, real results.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/courses" className="inline-flex items-center gap-2 bg-saffron text-white px-8 py-3.5 rounded-full font-medium hover:bg-saffron-dark transition-colors">
-              Explore Courses <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a href="https://api.whatsapp.com/send?phone=6586900960&text=Hello,%20I%20want%20to%20book%20a%20trial%20class" target="_blank" rel="noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-hindi-blue text-hindi-blue px-8 py-3.5 rounded-full font-medium hover:bg-hindi-blue hover:text-white transition-colors">
-              Book a Trial — ₹236
-            </a>
-          </div>
-          <div className="flex items-center gap-6 mt-10 text-sm text-gray-500">
-            <span className="flex items-center gap-1"><Users className="w-4 h-4" /> 500+ Students</span>
-            <span className="flex items-center gap-1"><Star className="w-4 h-4 text-yellow-500" /> 4.9 Rating</span>
-            <span className="flex items-center gap-1"><Globe className="w-4 h-4" /> 10+ Countries</span>
+          <div className="relative hidden md:block">
+            <div className="absolute -inset-4 bg-gradient-to-br from-saffron/20 to-orange-200/30 rounded-3xl blur-2xl" />
+            <img
+              src="https://hindiconnect.com/wp-content/uploads/2023/11/Hindi-Teacher.png"
+              alt="Hindi Teacher"
+              className="relative w-full max-w-md mx-auto drop-shadow-2xl"
+            />
           </div>
         </div>
       </div>
@@ -137,24 +147,27 @@ function CoursesPreview() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {courses.map(c => (
-            <div key={c.id} className={`rounded-2xl p-6 ${c.highlight ? 'bg-hindi-blue text-white ring-2 ring-saffron' : 'bg-white'} hover:shadow-xl transition-shadow`}>
-              <div className="text-3xl mb-3">{c.icon}</div>
-              <h3 className={`font-semibold text-lg ${c.highlight ? 'text-white' : 'text-hindi-blue'}`}>{c.title}</h3>
-              <p className={`text-sm mb-4 ${c.highlight ? 'text-gray-300' : 'text-gray-500'}`}>{c.subtitle}</p>
-              <div className="mb-4">
-                <span className="text-2xl font-bold">{c.price}</span>
-                <span className={`text-sm ${c.highlight ? 'text-gray-300' : 'text-gray-400'}`}>{c.period}</span>
+            <div key={c.id} className={`rounded-2xl overflow-hidden ${c.highlight ? 'bg-hindi-blue text-white ring-2 ring-saffron' : 'bg-white'} hover:shadow-xl transition-shadow`}>
+              {c.image && <img src={c.image} alt={c.title} className="w-full h-40 object-cover" />}
+              <div className="p-6">
+                <div className="text-3xl mb-3">{c.icon}</div>
+                <h3 className={`font-semibold text-lg ${c.highlight ? 'text-white' : 'text-hindi-blue'}`}>{c.title}</h3>
+                <p className={`text-sm mb-4 ${c.highlight ? 'text-gray-300' : 'text-gray-500'}`}>{c.subtitle}</p>
+                <div className="mb-4">
+                  <span className="text-2xl font-bold">{c.price}</span>
+                  <span className={`text-sm ${c.highlight ? 'text-gray-300' : 'text-gray-400'}`}>{c.period}</span>
+                </div>
+                <ul className="space-y-2 mb-6">
+                  {c.features.slice(0, 4).map(f => (
+                    <li key={f} className={`text-sm flex items-start gap-2 ${c.highlight ? 'text-gray-200' : 'text-gray-600'}`}>
+                      <CheckCircle className={`w-4 h-4 shrink-0 mt-0.5 ${c.highlight ? 'text-saffron' : 'text-hindi-green'}`} /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/courses" className={`block text-center py-2.5 rounded-full text-sm font-medium transition-colors ${c.highlight ? 'bg-saffron text-white hover:bg-saffron-dark' : 'border border-saffron text-saffron hover:bg-saffron hover:text-white'}`}>
+                  Learn More
+                </Link>
               </div>
-              <ul className="space-y-2 mb-6">
-                {c.features.slice(0, 4).map(f => (
-                  <li key={f} className={`text-sm flex items-start gap-2 ${c.highlight ? 'text-gray-200' : 'text-gray-600'}`}>
-                    <CheckCircle className={`w-4 h-4 shrink-0 mt-0.5 ${c.highlight ? 'text-saffron' : 'text-hindi-green'}`} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/courses" className={`block text-center py-2.5 rounded-full text-sm font-medium transition-colors ${c.highlight ? 'bg-saffron text-white hover:bg-saffron-dark' : 'border border-saffron text-saffron hover:bg-saffron hover:text-white'}`}>
-                Learn More
-              </Link>
             </div>
           ))}
         </div>
