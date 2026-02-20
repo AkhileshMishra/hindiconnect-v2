@@ -10,40 +10,30 @@ function Hero() {
         <div className="absolute top-20 left-10 text-[200px] font-hindi text-saffron select-none">अ</div>
         <div className="absolute bottom-10 right-20 text-[150px] font-hindi text-hindi-blue select-none">ह</div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-saffron/10 text-saffron px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" /> AI-Powered Assessments Coming Soon
-            </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-hindi-blue leading-tight mb-6">
-              Learn <span className="text-saffron">हिंदी</span> With<br />Qualified Native Teachers
-            </h1>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl">
-              Academic Hindi excellence for Kindergarten to Class X. Spoken Hindi for adults and kids. Small groups, personalized learning, real results.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/courses" className="inline-flex items-center gap-2 bg-saffron text-white px-8 py-3.5 rounded-full font-medium hover:bg-saffron-dark transition-colors shadow-lg shadow-saffron/25">
-                Explore Courses <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a href="https://api.whatsapp.com/send?phone=6586900960&text=Hello,%20I%20want%20to%20book%20a%20trial%20class" target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 border-2 border-hindi-blue text-hindi-blue px-8 py-3.5 rounded-full font-medium hover:bg-hindi-blue hover:text-white transition-colors">
-                Book a Trial — ₹236
-              </a>
-            </div>
-            <div className="flex items-center gap-6 mt-10 text-sm text-gray-500">
-              <span className="flex items-center gap-1"><Users className="w-4 h-4" /> 500+ Students</span>
-              <span className="flex items-center gap-1"><Star className="w-4 h-4 text-yellow-500" /> 4.9 Rating</span>
-              <span className="flex items-center gap-1"><Globe className="w-4 h-4" /> 10+ Countries</span>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-saffron/10 text-saffron px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" /> AI-Powered Assessments Coming Soon
           </div>
-          <div className="relative hidden md:block">
-            <div className="absolute -inset-4 bg-gradient-to-br from-saffron/20 to-orange-200/30 rounded-3xl blur-2xl" />
-            <img
-              src="https://hindiconnect.com/wp-content/uploads/2023/11/Hindi-Teacher.png"
-              alt="Hindi Teacher"
-              className="relative w-full max-w-md mx-auto drop-shadow-2xl"
-            />
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-hindi-blue leading-tight mb-6">
+            Learn <span className="text-saffron">हिंदी</span> With<br />Qualified Native Teachers
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-xl mx-auto">
+            Academic Hindi excellence for Kindergarten to Class X. Spoken Hindi for adults and kids. Small groups, personalized learning, real results.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link to="/courses" className="inline-flex items-center gap-2 bg-saffron text-white px-8 py-3.5 rounded-full font-medium hover:bg-saffron-dark transition-colors shadow-lg shadow-saffron/25">
+              Explore Courses <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a href="https://api.whatsapp.com/send?phone=6586900960&text=Hello,%20I%20want%20to%20book%20a%20trial%20class" target="_blank" rel="noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-hindi-blue text-hindi-blue px-8 py-3.5 rounded-full font-medium hover:bg-hindi-blue hover:text-white transition-colors">
+              Book a Trial — ₹236
+            </a>
+          </div>
+          <div className="flex items-center gap-6 mt-10 text-sm text-gray-500 justify-center">
+            <span className="flex items-center gap-1"><Users className="w-4 h-4" /> 500+ Students</span>
+            <span className="flex items-center gap-1"><Star className="w-4 h-4 text-yellow-500" /> 4.9 Rating</span>
+            <span className="flex items-center gap-1"><Globe className="w-4 h-4" /> 10+ Countries</span>
           </div>
         </div>
       </div>
@@ -198,6 +188,40 @@ function Testimonials() {
   );
 }
 
+function VideoShowcase() {
+  const { videos } = useContent();
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-end mb-10">
+          <div>
+            <h2 className="font-display text-3xl font-bold text-hindi-blue">Video Lessons</h2>
+            <p className="text-gray-500 mt-1">Watch our students and teachers in action</p>
+          </div>
+          <Link to="/videos" className="hidden md:inline-flex items-center gap-1 text-saffron font-medium text-sm hover:underline">
+            View All <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {videos.slice(0, 3).map(v => (
+            <div key={v.id} className="bg-warm-gray rounded-2xl overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video bg-gray-900">
+                <iframe src={`https://www.youtube.com/embed/${v.youtubeId}`} title={v.title}
+                  className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+              </div>
+              <div className="p-5">
+                <span className="text-xs text-saffron font-medium">{v.category}</span>
+                <h3 className="font-semibold text-hindi-blue mt-1 mb-1">{v.title}</h3>
+                <p className="text-sm text-gray-500 line-clamp-2">{v.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LatestPosts() {
   const { posts } = useContent();
   return (
@@ -240,6 +264,7 @@ export default function Home() {
       <AIBanner />
       <CoursesPreview />
       <Testimonials />
+      <VideoShowcase />
       <LatestPosts />
     </>
   );
