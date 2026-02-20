@@ -3,6 +3,8 @@ import { ContentProvider } from './context/ContentContext';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Blog from './pages/Blog';
@@ -19,6 +21,7 @@ export default function App() {
       <AuthProvider>
         <ContentProvider>
           <div className="min-h-screen flex flex-col font-sans">
+            <ScrollToTop />
             <Navbar />
             <main className="flex-1">
               <Routes>
@@ -34,6 +37,7 @@ export default function App() {
               </Routes>
             </main>
             <Footer />
+            <WhatsAppButton />
           </div>
         </ContentProvider>
       </AuthProvider>
