@@ -14,6 +14,7 @@ import AIAssessment from './pages/AIAssessment';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
+import Checkout from './pages/Checkout';
 
 export default function App() {
   return (
@@ -22,22 +23,30 @@ export default function App() {
         <ContentProvider>
           <div className="min-h-screen flex flex-col font-sans">
             <ScrollToTop />
-            <Navbar />
-            <main className="flex-1">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/courses" element={<Courses />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:id" element={<BlogPost />} />
-                <Route path="/videos" element={<Videos />} />
-                <Route path="/ai-assessment" element={<AIAssessment />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/admin" element={<Admin />} />
-              </Routes>
-            </main>
-            <Footer />
-            <WhatsAppButton />
+            <Routes>
+              {/* Checkout page renders without Navbar/Footer for a clean payment experience */}
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="*" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/courses" element={<Courses />} />
+                      <Route path="/blog" element={<Blog />} />
+                      <Route path="/blog/:id" element={<BlogPost />} />
+                      <Route path="/videos" element={<Videos />} />
+                      <Route path="/ai-assessment" element={<AIAssessment />} />
+                      <Route path="/contact" element={<Contact />} />
+                      <Route path="/login" element={<Login />} />
+                      <Route path="/admin" element={<Admin />} />
+                    </Routes>
+                  </main>
+                  <Footer />
+                  <WhatsAppButton />
+                </>
+              } />
+            </Routes>
           </div>
         </ContentProvider>
       </AuthProvider>
